@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Informace — Sherp Bank</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{--blue:#003f8a;--yellow:#ffcc00;--bg:#51545b;--muted:#6b7280;--dark:#0f172a}
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', Arial;
+      background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('fotky/večer.jpg') no-repeat center center fixed;
+      background-size: cover;
+      width: 100%;
+      min-height: 100vh;
+      color: var(--dark);
+    }
+    header {
+      background: rgba(87, 86, 86, 0.6);
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      box-shadow: 0 2px 12px rgba(0,63,138,0.08);
+      position: sticky; top: 0; z-index: 10;
+    }
+    .container{max-width:100%;margin:0 auto;padding:0 20px}
+    .nav{display:flex;align-items:center;justify-content:space-between;height:100px;gap:20px}
+    .brand{display:flex;align-items:center;gap:12px;flex-shrink:0;height:100%}
+    .brand img{height:130px;width:auto}
+    .brand h1{font-size:20px;margin:0;color:var(--blue);font-weight:700;letter-spacing:-0.5px}
+    nav .buttons{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+    .btn{background:transparent;border:none;padding:10px 16px;border-radius:8px;font-weight:600;color:var(--muted);cursor:pointer;text-decoration:none;display:inline-block;transition:all 0.3s ease;font-size:14px}
+    .btn:hover{color:var(--blue);background:rgba(0,63,138,0.05)}
+    .btn.primary{background:var(--blue);color:#fff;box-shadow:0 4px 12px rgba(0,63,138,0.25)}
+    .btn.primary:hover{opacity:0.95;box-shadow:0 6px 16px rgba(0,63,138,0.35)}
+    .btn.logout{background:var(--blue);color:#fff}
+    .content{
+      padding:60px 0;max-width:900px;margin:0 auto;
+      background: rgba(87, 86, 86, 0.6);
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      border-radius: 24px;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.18);
+      border:1px solid rgba(255,255,255,0.2)
+    }
+    .content h2{font-size:42px;color:var(--blue);margin:0 0 16px 0;font-weight:700;letter-spacing:-1px}
+    .content p{color:#e5e7eb;font-size:16px;line-height:1.7}
+    footer{padding:48px 0;color:var(--muted);font-size:14px;border-top:1px solid rgba(0,63,138,0.08);margin-top:80px;background:rgba(87, 86, 86, 0.6);backdrop-filter: blur(15px);-webkit-backdrop-filter: blur(15px);}
+    footer>div{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;max-width:100%;padding:0 20px}
+    @media(max-width:880px){.content{padding:40px 0}.content h2{font-size:28px}}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <img src="fotky/Sherp%20logo%20bank.png" alt="Sherp Bank logo">
+        <h1>Sherp Bank</h1>
+      </div>
+      <nav>
+        <div class="buttons">
+          <a href="domovska-stranka.html" class="btn">← Domů</a>
+          <a href="cernaListina.html" class="btn">Černá listina</a>
+          <a href="dovaskaz lata.html" class="btn">Dováška zlata</a>
+          <a href="pravidla.html" class="btn">Pravidla</a>
+          <a href="informace.html" class="btn">Informace</a>
+          <a href="fotky.html" class="btn">Fotky</a>
+          <button class="btn logout" onclick="logout()">Odhlásit se</button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="content">
+      <h2>Informace</h2>
+      <p>Tato stránka obsahuje obecné informace o bance. Zde budete moci najít všechny důležité údaje a kontakty.</p>
+    </section>
+  </main>
+
+  <footer>
+    <div>
+      <div>© Sherp Bank • Všechna práva vyhrazena</div>
+      <div style="color:var(--muted)">Podmínky • Ochrana soukromí • Kontakt</div>
+    </div>
+  </footer>
+
+  <script>
+    // Kontrola přihlášení
+    if (!sessionStorage.getItem('sherp_login_token')) {
+      window.location.href = 'index.html';
+    }
+
+    function logout() {
+      sessionStorage.removeItem('sherp_login_token');
+      window.location.href = 'index.html';
+    }
+  </script>
+
+</body>
+</html>

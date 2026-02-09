@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Fotky — Sherp Bank</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{--blue:#003f8a;--yellow:#ffcc00;--bg:#51545b;--muted:#6b7280;--dark:#0f172a}
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', Arial;
+      background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('fotky/večer.jpg') no-repeat center center fixed;
+      background-size: cover;
+      width: 100%;
+      min-height: 100vh;
+      color: var(--dark);
+    }
+    header {
+      background: rgba(87, 86, 86, 0.6);
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      box-shadow: 0 2px 12px rgba(0,63,138,0.08);
+      position: sticky; top: 0; z-index: 10;
+    }
+    .container{max-width:100%;margin:0 auto;padding:0 20px}
+    .nav{display:flex;align-items:center;justify-content:space-between;height:100px;gap:20px}
+    .brand{display:flex;align-items:center;gap:12px;flex-shrink:0;height:100%}
+    .brand img{height:130px;width:auto}
+    .brand h1{font-size:20px;margin:0;color:var(--blue);font-weight:700;letter-spacing:-0.5px}
+    nav .buttons{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+    .btn{background:transparent;border:none;padding:10px 16px;border-radius:8px;font-weight:600;color:var(--muted);cursor:pointer;text-decoration:none;display:inline-block;transition:all 0.3s ease;font-size:14px}
+    .btn:hover{color:var(--blue);background:rgba(0,63,138,0.05)}
+    .btn.primary{background:var(--blue);color:#fff;box-shadow:0 4px 12px rgba(0,63,138,0.25)}
+    .btn.primary:hover{opacity:0.95;box-shadow:0 6px 16px rgba(0,63,138,0.35)}
+    .btn.logout{background:var(--blue);color:#fff}
+    .gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:24px;padding:40px 0}
+    .gallery-item{
+      background: rgba(87, 86, 86, 0.6);
+      border-radius:16px;overflow:hidden;
+      box-shadow:0 6px 20px rgba(0,0,0,0.18);
+      transition:all 0.3s ease;
+      border:1px solid rgba(255,255,255,0.2)
+    }
+    .gallery-item:hover{transform:translateY(-8px);box-shadow:0 16px 40px rgba(0,0,0,0.22)}
+    .gallery-item img{width:100%;height:220px;object-fit:cover;display:block}
+    .gallery-item-caption{padding:20px;background:rgba(87, 86, 86, 0.6);color:#e5e7eb}
+    .gallery-item-caption p{margin:0;color:#e5e7eb;font-size:14px;line-height:1.6}
+    .content{padding:60px 0;max-width:1200px;margin:0 auto}
+    .content h2{font-size:42px;color:var(--blue);margin:0 0 16px 0;font-weight:700;letter-spacing:-1px}
+    .content .subtitle{color:#e5e7eb;font-size:18px;margin-bottom:30px;line-height:1.6}
+    footer{padding:48px 0;color:var(--muted);font-size:14px;border-top:1px solid rgba(0,63,138,0.08);margin-top:80px;background:rgba(87, 86, 86, 0.6);backdrop-filter: blur(15px);-webkit-backdrop-filter: blur(15px);}
+    footer>div{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;max-width:100%;padding:0 20px}
+    @media(max-width:880px){.content{padding:40px 0}.content h2{font-size:28px}.gallery{grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px}}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <img src="fotky/Sherp%20logo%20bank.png" alt="Sherp Bank logo">
+        <h1>Sherp Bank</h1>
+      </div>
+      <nav>
+        <div class="buttons">
+          <a href="domovska-stranka.html" class="btn">← Domů</a>
+          <a href="cernaListina.html" class="btn">Černá listina</a>
+          <a href="dovaskaz lata.html" class="btn">Dováška zlata</a>
+          <a href="pravidla.html" class="btn">Pravidla</a>
+          <a href="informace.html" class="btn">Informace</a>
+          <a href="fotky.html" class="btn">Fotky</a>
+          <button class="btn logout" onclick="logout()">Odhlásit se</button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="content">
+      <h2>Naše prostory a vybavení</h2>
+      <p class="subtitle">Podívejte se na moderní zázemí naší banky</p>
+      
+      <div class="gallery">
+        <div class="gallery-item">
+          <img src="fotky/Bankomat.webp" alt="Bankomat">
+          <div class="gallery-item-caption">
+            <p>Moderní bankomat pro rychlý přístup k peněžům</p>
+          </div>
+        </div>
+        
+        <div class="gallery-item">
+          <img src="fotky/Bankomat2.webp" alt="Bankomat 2">
+          <div class="gallery-item-caption">
+            <p>Druhý bankomat s nejnovější technologií</p>
+          </div>
+        </div>
+        
+        <div class="gallery-item">
+          <img src="fotky/Hodiny.webp" alt="Hodiny">
+          <div class="gallery-item-caption">
+            <p>Precizní časomíra v našem hlavním sále</p>
+          </div>
+        </div>
+        
+        <div class="gallery-item">
+          <img src="fotky/Horní.webp" alt="Horní část kanceláře">
+          <div class="gallery-item-caption">
+            <p>Pohled na horní část našeho moderního interiéru</p>
+          </div>
+        </div>
+        
+        <div class="gallery-item">
+          <img src="fotky/kancelář.webp" alt="Kancelář">
+          <div class="gallery-item-caption">
+            <p>Profesionální kancelářské prostory pro naše pracovníky</p>
+          </div>
+        </div>
+        
+        <div class="gallery-item">
+          <img src="fotky/kancelář2.webp" alt="Kancelář 2">
+          <div class="gallery-item-caption">
+            <p>Druhá kancelář vybavená nejmodernějšími nástroji</p>
+          </div>
+        </div>
+        
+        <div class="gallery-item">
+          <img src="fotky/mistnost2.webp" alt="Místnost 2">
+          <div class="gallery-item-caption">
+            <p>Spacious meeting room pro klientské porady</p>
+          </div>
+        </div>
+        
+        <div class="gallery-item">
+          <img src="fotky/safe.webp" alt="Trezor">
+          <div class="gallery-item-caption">
+            <p>Bezpečný trezor s nejvyšší ochranou hodnot</p>
+          </div>
+        </div>
+        
+        <div class="gallery-item">
+          <img src="fotky/trezor.webp" alt="Trezor detail">
+          <div class="gallery-item-caption">
+            <p>Detail našeho prestižního trezoru</p>
+          </div>
+        </div>
+        
+        <div class="gallery-item">
+          <img src="fotky/vnitřek trezoru.webp" alt="Vnitřek trezoru">
+          <div class="gallery-item-caption">
+            <p>Vnitřek trezoru s bezpečnými schránkami</p>
+          </div>
+        </div>
+        
+        <div class="gallery-item">
+          <img src="fotky/Vnitřek.webp" alt="Vnitřek budovy">
+          <div class="gallery-item-caption">
+            <p>Elegantní vnitřek hlavní budovy s moderním design</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div>
+      <div>© Sherp Bank • Všechna práva vyhrazena</div>
+      <div style="color:var(--muted)">Podmínky • Ochrana soukromí • Kontakt</div>
+    </div>
+  </footer>
+
+  <script>
+    // Kontrola přihlášení
+    if (!sessionStorage.getItem('sherp_login_token')) {
+      window.location.href = 'index.html';
+    }
+
+    function logout() {
+      sessionStorage.removeItem('sherp_login_token');
+      window.location.href = 'index.html';
+    }
+  </script>
+
+</body>
+</html>
