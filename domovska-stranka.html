@@ -42,7 +42,8 @@
     .cta{margin-top:32px;display:flex;gap:16px}
     .card{
       flex:1;display:grid;gap:20px;padding:40px;border-radius:16px;
-      background: rgba(87, 86, 86, 0.6);
+      background: linear-gradient(rgba(87, 86, 86, 0.6), rgba(87, 86, 86, 0.6)), url('fotky/venekbanky.webp') no-repeat center center;
+      background-size: cover;
       backdrop-filter: blur(15px);
       -webkit-backdrop-filter: blur(15px);
       box-shadow: 0 12px 40px rgba(0,0,0,0.18);
@@ -53,6 +54,23 @@
     .feature-icon.yellow{background:linear-gradient(135deg,var(--yellow),#ffb800)}
     .feature > div > div { color: #e5e7eb !important; }
     .logo-wrap{display:flex;align-items:center;justify-content:center;height:300px}
+    .features-section{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;padding:60px 0;margin:40px 0}
+    .feature-box{
+      border-radius:16px;
+      background: rgba(87, 86, 86, 0.6);
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.18);
+      border:1px solid rgba(255,255,255,0.2);
+      overflow:hidden;
+      display:flex;
+      flex-direction:column
+    }
+    .feature-box-image{width:100%;height:200px;background:#f0f0f0;overflow:hidden}
+    .feature-box-image img{width:100%;height:100%;object-fit:cover}
+    .feature-box-content{padding:24px;flex:1;display:flex;flex-direction:column}
+    .feature-box-content h3{color:var(--blue);font-size:18px;margin-bottom:12px;font-weight:700}
+    .feature-box-content p{color:#e5e7eb;font-size:14px;line-height:1.5}
     footer{padding:48px 0;color:var(--muted);font-size:14px;border-top:1px solid rgba(0,63,138,0.08);margin-top:80px;background:rgba(87, 86, 86, 0.6);backdrop-filter: blur(15px);-webkit-backdrop-filter: blur(15px);}
     footer>div{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;max-width:100%;padding:0 20px}
     @media(max-width:880px){.hero{flex-direction:column;gap:40px;padding:60px 0}.logo-wrap{height:140px}.brand img{height:56px}h2{font-size:32px}.card{padding:24px}}
@@ -92,7 +110,7 @@
 
       <div class="card">
         <div class="logo-wrap">
-          <img src="fotky/Sherp%20logo%20bank.png" alt="Sherp Bank logo" style="max-height:200px">
+          <img src="fotky/Sherp%20logo%20bank.png" alt="Sherp Bank logo" style="max-height:450px">
         </div>
         <div class="feature">
           <div class="feature-icon"></div>
@@ -107,6 +125,38 @@
             <strong style="font-size:16px;color:var(--dark)">Rychlé převody</strong>
             <div style="color:var(--muted);font-size:14px;margin-top:4px">Platby do pár vteřin, přehled transakcí</div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="features-section">
+      <div class="feature-box">
+        <div class="feature-box-image">
+          <img src="fotky/heistbank.webp" alt="Incidenty">
+        </div>
+        <div class="feature-box-content">
+          <h3>Bezpečnost proti přepadení</h3>
+          <p>Několik pokusů o přepadení naší banky se nezdařilo díky našim bezpečnostním opatřením a rychlé reakci týmu.</p>
+        </div>
+      </div>
+
+      <div class="feature-box">
+        <div class="feature-box-image">
+          <img src="fotky/top.jpg" alt="Spolupráce">
+        </div>
+        <div class="feature-box-content">
+          <h3>Spolupráce se specialisty</h3>
+          <p>Pracujeme s nejlepšími bezpečnostními jednotkami v okolí, aby garantovala maximální ochranu vašich financí.</p>
+        </div>
+      </div>
+
+      <div class="feature-box">
+        <div class="feature-box-image">
+          <img src="fotky/zlato.avif" alt="Transport">
+        </div>
+        <div class="feature-box-content">
+          <h3>Bezpečný transport</h3>
+          <p>Veškeré přepravy zlata a peněz probíhají pod nejpřísnějším dohledem a s nejmodernější technologií.</p>
         </div>
       </div>
     </section>
